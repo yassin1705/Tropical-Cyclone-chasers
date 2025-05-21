@@ -1,7 +1,13 @@
 Introduction
 ============
 
-This project processes and models tropical cyclone trajectories:
-- Parsing historical `.txt` records into CSV  
-- Converting (lat, lon) into stepwise polar coordinates  
-- Training and evaluating ML models to predict cyclone paths  
+This project aims to predict the trajectories of tornadoes (tropical cyclones) using machine learning techniques. By analyzing historical trajectory data, our models can forecast the future path of active tornadoes, which is crucial for early warning systems and disaster preparedness.
+
+Contributors:
+
+Yassine Mokhass
+Fatima-Ezzahrae Akebli
+
+Supervisor:
+
+Mr. Taoufik Massrour
