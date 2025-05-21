@@ -6,6 +6,7 @@ Welcome to Tornado Trajectory Project's Documentation!
    :caption: Contents:
 
    introduction
+   data
    usage
    api
 
