@@ -7,7 +7,7 @@ sys.path.insert(0, os.path.abspath('..'))
 # -- Project information -----------------------------------------------------
 project = 'Tornado Trajectory Project'
 copyright = '2025'
-author = 'Your Name'
+author = 'yassine'
 
 # -- General configuration ---------------------------------------------------
 extensions = [
