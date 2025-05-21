@@ -1,3 +1,7 @@
+
+Normalization Strategies
+========================
+
 Normalization Strategy
 We compared two primary normalization approaches:
 Per-Trajectory Normalization
