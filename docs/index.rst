@@ -10,7 +10,7 @@ Welcome to Tornado Trajectory Project's Documentation!
    normalization_strategie
    prediction_strategie
    usage
-   api
+   
 
 Indices and tables
 ==================
