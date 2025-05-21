@@ -11,7 +11,7 @@ build:
 # Define the Python environment
 python:
   install:
-    - requirements: requirements.txt  # if you have dependencies
+    - requirements: requirements.txt  
 
 # Set the documentation builder
 sphinx:
