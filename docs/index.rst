@@ -9,7 +9,9 @@ Welcome to Tornado Trajectory Project's Documentation!
    data
    normalization_strategie
    prediction_strategie
+   modeling
    usage
+
    
 
 Indices and tables
