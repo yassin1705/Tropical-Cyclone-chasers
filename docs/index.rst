@@ -7,7 +7,8 @@ Welcome to Tornado Trajectory Project's Documentation!
 
    introduction
    data
-   normalization_strategie.rst
+   normalization_strategie
+   prediction_strategie
    usage
    api
 
