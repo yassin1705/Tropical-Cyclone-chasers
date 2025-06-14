@@ -25,8 +25,7 @@ Prédit les futures positions d'une tornade à partir de données de trajectoire
             [latitude3, longitude3],
             [latitude4, longitude4],
             [latitude5, longitude5]
-        ],
-        "horizon": 10
+        ]
     }
 
 - `coordinates` : Liste de 5 paires [latitude, longitude]  
