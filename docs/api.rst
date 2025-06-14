@@ -1,21 +1,20 @@
-=============
-API Reference
-=============
+Référence de l'API
+==================
 
-This section provides detailed documentation for the AI-Tornado-Chaser API endpoints and usage.
+Cette section fournit une documentation détaillée des points de terminaison (endpoints) et de l’utilisation de l’API d’**AI-Tornado-Chaser**.
 
-REST API Endpoints
----------------
+Points de terminaison REST API
+------------------------------
 
-Trajectory Prediction
-~~~~~~~~~~~~~~~~~~
+Prédiction de trajectoire
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-POST /api/v1/predict
-^^^^^^^^^^^^^^^^^^^
+**POST** http://localhost:500/predict
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Predicts future tornado positions based on historical trajectory data.
+Prédit les futures positions d'une tornade à partir de données de trajectoire historiques.
 
-**Request Format:**
+**Format de la requête :**
 
 .. code-block:: json
 
@@ -30,10 +29,10 @@ Predicts future tornado positions based on historical trajectory data.
         "horizon": 10
     }
 
-* `coordinates`: List of 5 [latitude, longitude] pairs
-* `horizon`: Number of future positions to predict (default: 10)
+- `coordinates` : Liste de 5 paires [latitude, longitude]  
+- `horizon` : Nombre de positions futures à prédire (valeur par défaut : 10)
 
-**Response Format:**
+**Format de la réponse :**
 
 .. code-block:: json
 
@@ -43,19 +42,17 @@ Predicts future tornado positions based on historical trajectory data.
             [pred_lat2, pred_lon2],
             ...
             [pred_lat10, pred_lon10]
-        ],
-        "confidence": 0.95,
-        "timestamp": "2025-06-09T12:00:00Z"
+        ]
     }
 
-**Example Usage:**
+**Exemple d’utilisation :**
 
 .. code-block:: python
 
     import requests
     import json
 
-    api_url = "http://localhost:5000/api/v1/predict"
+    api_url = "http://localhost:500/predict"
     data = {
         "coordinates": [
             [57, 1399],
@@ -70,66 +67,59 @@ Predicts future tornado positions based on historical trajectory data.
     response = requests.post(api_url, json=data)
     predictions = response.json()
 
-Chatbot Interaction
-~~~~~~~~~~~~~~~~
+Interaction avec le chatbot
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-POST /api/v1/chat
-^^^^^^^^^^^^^^^
+**POST** /api/v1/get_instruction
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Provides intelligent responses to user queries about tornado safety and information.
+Fournit des réponses intelligentes aux questions des utilisateurs concernant la sécurité en cas de tornade et des informations générales.
 
-**Request Format:**
+**Format de la requête :**
 
 .. code-block:: json
 
     {
-        "query": "What should I do during a tornado warning?",
-        "context": {
-            "location": [latitude, longitude],
-            "current_warning": true
-        }
+        "query": "Que dois-je faire en cas d’alerte tornade ?"
     }
 
-**Response Format:**
+**Format de la réponse :**
 
 .. code-block:: json
 
     {
-        "response": "Find shelter immediately...",
-        "confidence": 0.98,
-        "sources": ["safety_guidelines", "emergency_protocol"],
-        "timestamp": "2025-06-09T12:00:00Z"
+        "response": "Trouvez immédiatement un abri..."
     }
 
-Error Handling
------------
+Gestion des erreurs
+-------------------
 
-The API uses standard HTTP status codes:
+L’API utilise les codes de statut HTTP standards :
 
-* 200: Successful request
-* 400: Bad request (invalid input)
-* 404: Resource not found
-* 500: Server error
+- 200 : Requête réussie  
+- 400 : Requête invalide (entrée incorrecte)  
+- 404 : Ressource non trouvée  
+- 500 : Erreur serveur interne  
 
-Error responses include detailed messages:
+Les réponses d'erreur incluent des messages détaillés :
 
 .. code-block:: json
 
     {
-        "error": "Invalid input format",
-        "detail": "Coordinates must be a list of 5 lat-long pairs",
+        "error": "Format d’entrée invalide",
+        "detail": "Les coordonnées doivent être une liste de 5 paires lat-long",
         "code": "INVALID_INPUT"
     }
 
-Rate Limiting
-----------
+Limitation de débit
+-------------------
 
-API endpoints are rate-limited:
+Les points de terminaison de l’API sont soumis à des limitations :
 
-* Prediction API: 100 requests per minute
-* Chatbot API: 60 requests per minute
+- API de prédiction : 100 requêtes par minute  
+- API chatbot : 60 requêtes par minute  
 
-Rate limit headers are included in responses:
+Les en-têtes de limitation de débit sont inclus dans les réponses :
 
 .. code-block:: text
 
@@ -137,54 +127,21 @@ Rate limit headers are included in responses:
     X-RateLimit-Remaining: 95
     X-RateLimit-Reset: 1623240000
 
-Authentication
-------------
+Versionnement du modèle
+-----------------------
 
-API access requires an API key passed in the header:
+L’API prend en charge plusieurs versions de modèle :
 
-.. code-block:: python
+- Spécifiez la version dans l’URL : `/api/v1/predict`  
+- Ou utilisez l’en-tête : `X-Model-Version: 2.0`  
+- La version stable la plus récente est utilisée par défaut
 
-    headers = {
-        "Authorization": "Bearer your_api_key_here",
-        "Content-Type": "application/json"
-    }
+Formats de données
+------------------
 
-    response = requests.post(api_url, 
-                           headers=headers,
-                           json=data)
+Tous les points de terminaison de l’API :
 
-Websocket API
------------
-
-For real-time updates, a WebSocket API is available:
-
-.. code-block:: python
-
-    import websockets
-    import asyncio
-
-    async def get_updates():
-        uri = "ws://localhost:5000/ws/updates"
-        async with websockets.connect(uri) as websocket:
-            while True:
-                update = await websocket.recv()
-                print(json.loads(update))
-
-Model Versioning
--------------
-
-The API supports multiple model versions:
-
-* Specify version in URL: `/api/v1/predict`
-* Use header: `X-Model-Version: 2.0`
-* Default to latest stable version
-
-Data Formats
-----------
-
-All API endpoints:
-
-* Accept and return JSON
-* Use UTC timestamps
-* Support GZIP compression
-* Handle CORS for web clients
+- Acceptent et retournent des données en **JSON**
+- Utilisent des horodatages **UTC**
+- Prennent en charge la compression **GZIP**
+- Gèrent les requêtes **CORS** pour les clients web
