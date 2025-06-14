@@ -63,7 +63,6 @@ Technologies utilisées
    api
    models
    data_processing
-   visualization
    architecture
    deploiement
    notebooks
