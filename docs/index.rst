@@ -1,50 +1,50 @@
-AI-Tornado-Chaser Documentation
-============================
+Documentation de AI-Tornado-Chaser
+==================================
 
-Welcome to the AI-Tornado-Chaser documentation. This comprehensive system combines advanced machine learning with intelligent assistance for natural disaster management, specifically focusing on tornado trajectory prediction and safety guidance.
+Bienvenue dans la documentation de **AI-Tornado-Chaser**. Ce système complet combine apprentissage automatique avancé et assistance intelligente pour la gestion des catastrophes naturelles, avec un accent particulier sur la prédiction des trajectoires de tornades et les conseils de sécurité.
 
-Project Overview
--------------
+Présentation du projet
+----------------------
 
-AI-Tornado-Chaser is an advanced system that:
+AI-Tornado-Chaser est un système avancé qui :
 
-* Predicts tornado trajectories using deep learning
-* Provides real-time safety guidance through an intelligent chatbot
-* Analyzes historical data from 2,489 tornadoes (1949-2023)
-* Implements state-of-the-art machine learning models
-* Offers REST API for real-time predictions
+* Prédit les trajectoires de tornades à l'aide de l'apprentissage profond
+* Fournit des conseils de sécurité en temps réel via un chatbot intelligent
+* Analyse des données historiques de 2 489 tornades (1949-2023)
+* Implémente des modèles de machine learning de pointe
+* Offre une API REST pour des prédictions en temps réel
 
-Key Features
-----------
+Fonctionnalités principales
+---------------------------
 
-1. **Trajectory Prediction**
-   * BiLSTM-based sequence prediction
-   * Multi-step forecasting
-   * High accuracy positioning
+1. **Prédiction de trajectoire**
+   * Prédiction séquentielle basée sur BiLSTM
+   * Prévision multi-étapes
+   * Précision élevée de positionnement
 
-2. **Intelligent Chatbot**
-   * NLP-powered responses
-   * Real-time safety advice
-   * Context-aware assistance
+2. **Chatbot intelligent**
+   * Réponses basées sur le NLP
+   * Conseils de sécurité en temps réel
+   * Assistance contextuelle
 
-3. **Data Analysis**
-   * Historical pattern recognition
-   * Trend analysis
-   * Interactive visualizations
+3. **Analyse de données**
+   * Reconnaissance de motifs historiques
+   * Analyse des tendances
+   * Visualisations interactives
 
-4. **API Integration**
-   * RESTful endpoints
-   * Real-time predictions
-   * Easy integration options
+4. **Intégration API**
+   * Points de terminaison RESTful
+   * Prédictions en temps réel
+   * Intégration facile dans des systèmes tiers
 
-Caractéristiques principales
-----------------------------
+Caractéristiques supplémentaires
+-------------------------------
 
-* **Prédiction de trajectoires** : Modèles d'apprentissage profond pour prédire les coordonnées futures des ouragans
-* **Prédiction de durée** : Estimation de la durée de vie des ouragans basée sur leurs caractéristiques initiales
-* **Chatbot d'assistance** : Système intelligent fournissant des conseils de sécurité en temps réel
-* **Analyse comparative** : Évaluation de multiples architectures de modèles (LSTM, BiLSTM, CNN+LSTM, etc.)
-* **Optimisation avancée** : Tests de différents optimiseurs, tailles de batch, et stratégies de normalisation
+* **Prédiction de trajectoires** : Modèles d'apprentissage profond pour prédire les coordonnées futures des tornades
+* **Prédiction de durée** : Estimation de la durée de vie d'une tornade selon ses caractéristiques initiales
+* **Chatbot d'assistance** : Système intelligent fournissant des conseils de sécurité immédiats
+* **Analyse comparative** : Évaluation de plusieurs architectures (LSTM, BiLSTM, CNN+LSTM, etc.)
+* **Optimisation avancée** : Tests de différents optimiseurs, tailles de batch et méthodes de normalisation
 
 Technologies utilisées
 ----------------------
@@ -52,11 +52,11 @@ Technologies utilisées
 * **Apprentissage automatique** : TensorFlow/Keras, XGBoost
 * **Traitement du langage naturel** : SentenceTransformers, FAISS
 * **Visualisation** : Matplotlib, visualisations de trajectoires
-* **Source de données** : CMA Tropical Cyclone Data Center
+* **Source des données** : CMA Tropical Cyclone Data Center
 
 .. toctree::
    :maxdepth: 2
-   :caption: Table of Contents:
+   :caption: Table des matières :
 
    installation
    quickstart
@@ -71,8 +71,8 @@ Technologies utilisées
    contributing
    changelog
 
-Indices et tables
-=================
+Index et tables
+===============
 
 * :ref:`genindex`
 * :ref:`modindex`
